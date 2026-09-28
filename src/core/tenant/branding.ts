@@ -1,0 +1,2 @@
+import type {HotelConfig} from "@/types/hotel";
+export function hotelCssVariables(config:HotelConfig):React.CSSProperties{return {"--hotel-primary":config.branding.primary,"--hotel-primary-soft":config.branding.primarySoft,"--hotel-accent":config.branding.accent,"--hotel-bg":config.branding.background,"--hotel-surface":config.branding.surface,"--hotel-text":config.branding.text,"--hotel-muted":config.branding.muted,"--hotel-border":config.branding.border} as React.CSSProperties;}
