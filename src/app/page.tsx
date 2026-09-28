@@ -1,0 +1,2 @@
+import {hotelConfig} from "@/config/hotel";
+export default function Home(){return <main><div className="container hero"><div className="eyebrow">UNIVERSAL HOTEL OS</div><h1>{hotelConfig.identity.displayName}</h1><p className="muted">{hotelConfig.identity.tagline}</p><p><a className="btn btn-primary" href="/guest">Open guest experience</a></p><p><a className="btn btn-soft" href="/admin">Open staff dashboard</a></p></div></main>}
