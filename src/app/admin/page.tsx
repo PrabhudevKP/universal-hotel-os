@@ -1,0 +1,2 @@
+import {hotelConfig} from "@/config/hotel"; import {ModuleStatus} from "@/components/admin/ModuleStatus";
+export default function AdminPage(){return <main><div className="container hero"><div className="eyebrow">STAFF / ADMIN</div><h1>{hotelConfig.identity.displayName}</h1><p className="muted">Tenant-aware hotel operations and configuration console.</p><section className="card"><h2>Modules</h2><ModuleStatus/></section></div></main>}
