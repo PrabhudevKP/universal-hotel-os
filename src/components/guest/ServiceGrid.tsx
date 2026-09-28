@@ -1,0 +1,2 @@
+"use client"; import {hotelConfig} from "@/config/hotel"; import {HOTEL_MODULES} from "@/core/modules";
+export function ServiceGrid(){return <div className="service-grid">{HOTEL_MODULES.filter(m=>hotelConfig.features[m.key]).map(m=><a className="service-card" href={m.route} key={m.key}><strong>{m.label}</strong><span>{m.description}</span></a>)}</div>}
