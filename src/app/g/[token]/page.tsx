@@ -1,0 +1,2 @@
+import {resolveHotel} from "@/core/tenant/registry";
+export default async function GuestEntry({params}:{params:Promise<{token:string}>}){const {token}=await params;const hotel=await resolveHotel({token});return <main><div className="container hero"><div className="eyebrow">QR ENTRY / {token}</div><h1>{hotel.identity.displayName}</h1><p className="muted">Production will bind this QR token to hotel, room and guest session context.</p><a className="btn btn-primary" href="/guest">Continue</a></div></main>}
