@@ -1,0 +1,1 @@
+import type {HotelConfig,HotelFeatureKey} from "@/types/hotel"; export const isFeatureEnabled=(config:HotelConfig,feature:HotelFeatureKey)=>config.features[feature]===true;
