@@ -1,2 +1,21 @@
-"use client"; import {hotelConfig} from "@/config/hotel"; import {HOTEL_MODULES} from "@/core/modules";
-export function ServiceGrid(){return <div className="service-grid">{HOTEL_MODULES.filter(m=>hotelConfig.features[m.key]).map(m=><a className="service-card" href={m.route} key={m.key}><strong>{m.label}</strong><span>{m.description}</span></a>)}</div>}
+import type {HotelConfig} from "@/types/hotel";
+import {HOTEL_MODULES} from "@/core/modules";
+
+type ServiceGridProps={
+  hotel:HotelConfig;
+};
+
+export function ServiceGrid({hotel}:ServiceGridProps){
+  return (
+    <div className="service-grid">
+      {HOTEL_MODULES
+        .filter(module=>hotel.features[module.key])
+        .map(module=>(
+          <a className="service-card" href={module.route} key={module.key}>
+            <strong>{module.label}</strong>
+            <span>{module.description}</span>
+          </a>
+        ))}
+    </div>
+  );
+}
