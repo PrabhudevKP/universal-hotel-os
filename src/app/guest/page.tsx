@@ -1,0 +1,2 @@
+import {hotelConfig} from "@/config/hotel"; import {ServiceGrid} from "@/components/guest/ServiceGrid";
+export default function GuestPage(){return <main><div className="container hero"><div className="eyebrow">GUEST EXPERIENCE</div><h1>Welcome to {hotelConfig.identity.displayName}</h1><p className="muted">Use the hotel experience directly in your browser. No app installation required.</p><section className="card"><h2>Hotel services</h2><ServiceGrid/></section></div></main>}
