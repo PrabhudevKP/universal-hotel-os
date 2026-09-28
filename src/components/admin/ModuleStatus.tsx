@@ -1,0 +1,2 @@
+import {hotelConfig} from "@/config/hotel"; import {HOTEL_MODULES} from "@/core/modules";
+export function ModuleStatus(){return <div className="service-grid">{HOTEL_MODULES.map(m=><div className="service-card" key={m.key}><strong>{m.label}</strong><span>{hotelConfig.features[m.key]?"Enabled":"Disabled"}</span></div>)}</div>}
