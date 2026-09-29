@@ -40,6 +40,17 @@ export const hotelConfig:HotelConfig={
     events:true,
     offers:true
   },
+  guestExperience:{
+    menuItems:[
+      {key:"house-wifi",label:"House & Wi-Fi",description:"Property information, Wi-Fi and stay essentials",route:"/guest/house-wifi"},
+      {key:"guest-services",label:"Guest Services",description:"Request help and in-room services",route:"/guest/guest-services"},
+      {key:"local-guide",label:"Goa Guide",description:"Explore places, directions and local recommendations",route:"/guest/local-guide",feature:"localGuide"},
+      {key:"contact",label:"Contact",description:"Reach the property team",route:"/guest/contact"},
+      {key:"property-offers",label:"Property & Offers",description:"Discover facilities, experiences and current offers",route:"/guest/property-offers",feature:"offers"},
+      {key:"policies",label:"Policies",description:"Review important stay information",route:"/guest/policies"},
+      {key:"food-beverage",label:"Food & Beverage",description:"Dining, breakfast and room service",route:"/guest/restaurant",feature:"restaurant"}
+    ]
+  },
   timings:{
     breakfast:{label:"Breakfast",start:"07:30",end:"10:30"},
     restaurant:{label:"Restaurant",start:"12:00",end:"22:30"},
