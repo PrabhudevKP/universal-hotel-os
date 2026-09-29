@@ -120,7 +120,7 @@ export default async function GuestSectionPage({params,searchParams}:GuestSectio
         <a className="back-link" href={session?`/guest?token=${encodeURIComponent(session.qrToken)}`:"/guest"}>← Back to guest home</a>
 
         <header className="guest-section-header">
-          <div className="eyebrow">ANEMOS GUEST EXPERIENCE</div>
+          <div className="eyebrow">{hotel.identity.displayName.toUpperCase()} GUEST EXPERIENCE</div>
           <h1>{content.title}</h1>
           <p className="muted">{content.description}</p>
         </header>
@@ -148,8 +148,8 @@ export default async function GuestSectionPage({params,searchParams}:GuestSectio
       <nav className="guest-bottom-nav" aria-label="Guest navigation">
         <a href="/guest"><span>⌂</span>Home</a>
         <a className={section==="concierge"?"active":""} href="/guest/concierge"><span>✦</span>Concierge</a>
-        <a href="/guest/guest-services"><span>▦</span>Services</a>
-        <a className="active" href="/guest/contact"><span>•••</span>More</a>
+        <a className={section==="guest-services"?"active":""} href="/guest/guest-services"><span>▦</span>Services</a>
+        <a className={["contact","policies","property-offers","house-wifi"].includes(section)?"active":""} href="/guest/contact"><span>•••</span>More</a>
       </nav>
     </main>
   );
