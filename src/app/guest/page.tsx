@@ -81,7 +81,7 @@ export default async function GuestPage({searchParams}:GuestPageProps){
         <nav className="guest-bottom-nav" aria-label="Guest navigation">
           <a className="active" href={`/guest?token=${encodeURIComponent(session.qrToken)}`}><span>⌂</span>Home</a>
           <a href="/guest/concierge"><span>✦</span>Concierge</a>
-          <a href="#services"><span>▦</span>Services</a>
+          <a href="/guest/guest-services"><span>▦</span>Services</a>
           <a href="/guest/contact"><span>•••</span>More</a>
         </nav>
       )}
