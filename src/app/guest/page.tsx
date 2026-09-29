@@ -1,6 +1,7 @@
 import {resolveHotel} from "@/core/tenant/registry";
 import {resolveMockGuestSession} from "@/core/session/mock";
 import {ServiceGrid} from "@/components/guest/ServiceGrid";
+import {GuestMenu} from "@/components/guest/GuestMenu";
 
 type GuestPageProps={
   searchParams:Promise<{token?:string}>;
@@ -20,7 +21,7 @@ export default async function GuestPage({searchParams}:GuestPageProps){
             <h1 className="guest-brand">{hotel.identity.displayName}</h1>
             <p className="muted">{hotel.identity.tagline}</p>
           </div>
-          {session && (
+          {session&&(
             <div className="guest-session-pill">
               <span>ROOM {session.roomNumber}</span>
               <strong>{session.guestName}</strong>
@@ -28,7 +29,7 @@ export default async function GuestPage({searchParams}:GuestPageProps){
           )}
         </header>
 
-        {!session && (
+        {!session&&(
           <section className="card guest-notice">
             <strong>No active guest session</strong>
             <p className="muted">Open the room QR code to enter the guest experience with the correct room and stay context.</p>
@@ -36,7 +37,7 @@ export default async function GuestPage({searchParams}:GuestPageProps){
           </section>
         )}
 
-        {session && (
+        {session&&(
           <>
             <section className="guest-welcome">
               <div className="eyebrow">ROOM {session.roomNumber}</div>
@@ -45,10 +46,12 @@ export default async function GuestPage({searchParams}:GuestPageProps){
               <a className="btn btn-primary concierge-btn" href="/guest/concierge">Ask Concierge</a>
             </section>
 
+            <GuestMenu hotel={hotel}/>
+
             <section className="card guest-services">
               <div className="section-heading">
                 <div>
-                  <div className="eyebrow">YOUR STAY</div>
+                  <div className="eyebrow">SERVICES</div>
                   <h3>Hotel services</h3>
                 </div>
                 <span className="status-dot">Session active</span>
@@ -73,6 +76,15 @@ export default async function GuestPage({searchParams}:GuestPageProps){
           </>
         )}
       </div>
+
+      {session&&(
+        <nav className="guest-bottom-nav" aria-label="Guest navigation">
+          <a className="active" href={`/guest?token=${encodeURIComponent(session.qrToken)}`}><span>⌂</span>Home</a>
+          <a href="/guest/concierge"><span>✦</span>Concierge</a>
+          <a href="#services"><span>▦</span>Services</a>
+          <a href="/guest/contact"><span>•••</span>More</a>
+        </nav>
+      )}
     </main>
   );
 }
